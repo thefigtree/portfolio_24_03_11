@@ -1,7 +1,16 @@
+// {
+//   "compilerOptions": {
+//     "paths": {
+//       "@/*": ["./src/*"]
+
+//     }
+
+//   }
+// }
 {
   "compilerOptions": {
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "baseUrl": "./src",
+    "checkJs": true,
+    "jsx": "react-jsx"
   }
 }

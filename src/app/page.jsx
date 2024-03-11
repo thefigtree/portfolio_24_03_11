@@ -1,8 +1,9 @@
 "use client";
-import useMousePosition from "@/utils/useMousePosition";
 import styles from "./page.module.css";
 import { motion } from "framer-motion";
 import { useState } from "react";
+// import useMousePosition from "utils/useMousePosition";
+import useMousePosition from "./../utils/useMousePosition";
 
 export default function Home() {
   const [isHover, setIshover] = useState(false);
