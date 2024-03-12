@@ -1,9 +1,10 @@
-// import Navigation from "../../../components/navigation";
+export const metadata = {
+  title: "About | Portfolio",
+};
 
 export default function About() {
   return (
     <div>
-      {/* <Navigation></Navigation> */}
       <h1>About Me</h1>
     </div>
   );

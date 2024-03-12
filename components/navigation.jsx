@@ -13,7 +13,7 @@ export default function Navigation() {
           <Link href="/">Home</Link> {path === "/" ? "😡" : ""}
         </li>
         <li>
-          <Link href="/about"></Link> {path === "/about" ? "😡" : ""}
+          <Link href="/about">About</Link> {path === "/about" ? "😡" : ""}
         </li>
       </ul>
     </nav>

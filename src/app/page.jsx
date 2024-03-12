@@ -2,9 +2,7 @@
 import styles from "./page.module.css";
 import { motion } from "framer-motion";
 import { useState } from "react";
-// import useMousePosition from "utils/useMousePosition";
 import useMousePosition from "./../utils/useMousePosition";
-// import Navigation from "../../components/navigation";
 
 export default function Home() {
   const [isHover, setIshover] = useState(false);
@@ -13,7 +11,6 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      {/* <Navigation></Navigation> */}
       <motion.div
         className={styles.mask}
         animate={{
