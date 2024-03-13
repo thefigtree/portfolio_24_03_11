@@ -1,5 +1,6 @@
 .main {
   height: 100vh;
+  background: linear-gradient(#ffa5d5, #fff);
 }
 
 .body,
@@ -16,6 +17,7 @@
 
   .color {
     color: #ec4e39;
+    /* z-index: 10; */
   }
 
   .text {
@@ -25,10 +27,12 @@
 
 .mask {
   position: absolute;
+  /* top: 0; */
+  /* left: 0; */
   mask-image: url("../../public/mask.svg");
   background-color: #ec4e39;
   mask-repeat: no-repeat;
   /* mask-position: 50%; */
-  mask-size: 40px;
-  color: black;
+  mask-size: 25px;
+  color: beige;
 }

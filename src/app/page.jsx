@@ -7,7 +7,8 @@ import useMousePosition from "./../utils/useMousePosition";
 export default function Home() {
   const [isHover, setIshover] = useState(false);
   const { x, y } = useMousePosition();
-  const size = isHover ? 400 : 40;
+  const size = isHover ? 400 : 25;
+  // console.log(x, y);
 
   return (
     <main className={styles.main}>
