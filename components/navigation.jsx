@@ -5,12 +5,30 @@ import { usePathname } from "next/navigation";
 
 export default function Navigation() {
   const path = usePathname();
-  console.log(path);
+
+  const links = [
+    {
+      path: "/",
+      name: "Home",
+    },
+    {
+      path: "/about",
+      name: "About",
+    },
+    {
+      path: "/project",
+      name: "Project",
+    },
+    {
+      path: "/contact",
+      name: "Contact",
+    },
+  ];
 
   return (
     <nav className={style.header}>
       <ul className={style.menu}>
-        <li>
+        {/* <li>
           <Link href="/">Home</Link> {path === "/" ? "😡" : ""}
         </li>
         <li>
@@ -21,7 +39,17 @@ export default function Navigation() {
         </li>
         <li>
           <Link href="/contact">Contact</Link> {path === "/contact" ? "😡" : ""}
-        </li>
+        </li> */}
+        {links.map((link) => {
+          return (
+            <li key={link.path}>
+              <Link href={link.path}>
+                {link.name}
+                {path === link.path ? "😡" : ""}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );
