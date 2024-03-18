@@ -34,7 +34,7 @@ export default function Home() {
           </p>
         </motion.div>
         <div className={styles.body}>
-          <p className={styles.text}>Syntactic Sugar.</p>
+          <p className={styles.text}>j !n</p>
         </div>
       </main>
     </>
