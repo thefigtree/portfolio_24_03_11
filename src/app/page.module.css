@@ -3,7 +3,7 @@
   background: linear-gradient(#ffa5d5, #fff);
 }
 
-.body,
+/* .body,
 .mask {
   width: 100%;
   height: 100%;
@@ -14,24 +14,13 @@
   font-size: 64px;
   line-height: 66px;
   cursor: default;
+} */
 
-  /* .color {
-    color: #ec4e39;
-  } */
-
-  /* .text {
-    width: 1000px;
-  } */
-}
-
-.mask {
+/* .mask {
   position: absolute;
-  /* top: 0; */
-  /* left: 0; */
   mask-image: url("../../public/mask.svg");
   background-color: #ec4e39;
   mask-repeat: no-repeat;
-  /* mask-position: 50%; */
   mask-size: 25px;
   color: beige;
-}
+} */
