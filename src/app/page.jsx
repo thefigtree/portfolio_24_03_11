@@ -1,7 +1,7 @@
 "use client";
 import styles from "./page.module.css";
 // import { motion } from "framer-motion";
-// import { useEffect, useState } from "react";
+// import { useEffect } from "react";
 // import useMousePosition from "./../utils/useMousePosition";
 
 export default function Home() {
