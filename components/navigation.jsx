@@ -43,10 +43,7 @@ export default function Navigation() {
         {links.map((link) => {
           return (
             <li key={link.path}>
-              <Link href={link.path}>
-                {link.name}
-                {path === link.path ? "😡" : ""}
-              </Link>
+              <Link href={link.path}>{link.name}</Link>
             </li>
           );
         })}
