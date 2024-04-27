@@ -1,7 +1,8 @@
-* {
-  box-sizing: border-box;
-  padding: 0;
+body {
+  background: #eef4ff;
   margin: 0;
+  font-family: sans-serif;
+  color: #333;
 }
 
 ul,
