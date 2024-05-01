@@ -1,10 +1,13 @@
 // "use client";
 import styles from "./page.module.css";
+import { gsap } from "gsap";
 // import { motion } from "framer-motion";
 // import { useEffect } from "react";
 // import useMousePosition from "./../utils/useMousePosition";
 
 export default function Home() {
+  const details = gsap.utils.toArray(".section:not(:first-child)");
+
   // useEffect(() => {
   //   async () => {
   //     const LocomotvieScroll = (await import("locomotive-scroll")).default;
