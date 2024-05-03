@@ -1,12 +1,86 @@
-// "use client";
+"use client";
+import { useLayoutEffect, useRef } from "react";
 import styles from "./page.module.css";
-import { gsap } from "gsap";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import { motion } from "framer-motion";
 // import { useEffect } from "react";
 // import useMousePosition from "./../utils/useMousePosition";
 
 export default function Home() {
-  const details = gsap.utils.toArray(".section:not(:first-child)");
+  const leftRef = useRef(null);
+  const rightRef = useRef(null);
+  const galleryRef = useRef(null);
+  const pinRef = useRef(null);
+  useLayoutEffect(() => {
+    // let Elem = galleryRef.current;
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.set(rightRef, { yPercent: 101 });
+
+    const allPhotos = gsap.utils.toArray(".desktopPhoto");
+
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 600px)", () => {
+      console.log("desktop");
+
+      ScrollTrigger.create({
+        trigger: "galleryRef",
+        start: "top top",
+        end: "bottom bottom",
+        pin: "pinRef",
+      });
+    });
+  }, []);
+
+  // gsap.set(rightRef, { yPercent: 101 });
+  // gsap.registerPlugin(ScrollTrigger);
+
+  // useLayoutEffect(() => {
+  //   // gsap.registerPlugin(ScrollTrigger);
+  //   const details = gsap.utils.toArray(".section:not(:first-child)");
+
+  //   const photos = gsap.utils.toArray(".desktopColor:not(:first-child)");
+
+  //   gsap.set(photos, { yPercent: 101 });
+
+  //   const allPhotos = gsap.utils.toArray(".desktopColor");
+
+  //   let mm = gsap.matchMedia();
+
+  //   mm.add("min-width: 600px", () => {
+  //     console.log("desktop");
+
+  //     ScrollTrigger.create({
+  //       trigger: ".gallery",
+  //       start: "top top",
+  //       end: "bottom bottom",
+  //       pin: ".right",
+  //     });
+  //   });
+
+  //   details.forEach((detail, index) => {
+  //     let headline = detail.querySelector("h1");
+  //     let animation = gsap
+  //       .timeline()
+  //       .to(photos[index], { yPercent: 0 })
+  //       .set(allPhotos[index], { autoAlpha: 0 });
+  //     ScrollTrigger.create({
+  //       trigger: headline,
+  //       start: "top 80%",
+  //       end: "top 50%",
+  //       animation: animation,
+  //       scrub: true,
+  //       markers: false,
+  //     });
+  //   });
+
+  //   return () => {
+  //     // optional
+  //     // custom cleanup code here (runs when it STOPS matching)
+  //     console.log("mobile");
+  //   };
+  // }, []);
 
   // useEffect(() => {
   //   async () => {
@@ -23,7 +97,7 @@ export default function Home() {
   return (
     <>
       <main className={styles.main}>
-        <div className={styles.gallery}>
+        <div className={styles.gallery} ref={galleryRef}>
           <div className={styles.left}>
             <div className={styles.content}>
               <div className={styles.section}>
@@ -36,7 +110,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className={styles.section}>
+              <div className={styles.section} ref={leftRef}>
                 <h1>Green</h1>
                 <p>
                   Green is a color that is often associated with nature, growth,
@@ -48,7 +122,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className={styles.section}>
+              <div className={styles.section} ref={leftRef}>
                 <h1>Pink</h1>
                 <p>
                   Pink is a color that is often associated with femininity,
@@ -72,7 +146,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className={styles.section}>
+              <div className={styles.section} ref={leftRef}>
                 <h1>Blue</h1>
                 <p>
                   Blue is a color that is often associated with calmness, trust,
@@ -86,7 +160,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={styles.right}>
+          <div className={styles.right} ref={pinRef}>
             <div className={styles.moContent}>
               <div className={styles.moRed}></div>
               <h1>Red</h1>
@@ -128,10 +202,10 @@ export default function Home() {
             </div>
 
             <div className={styles.desktopGallery}>
-              <div className={styles.desktopRed}></div>
-              <div className={styles.desktopGreen}></div>
-              <div className={styles.desktopPink}></div>
-              <div className={styles.desktopBlue}></div>
+              <div className={styles.desktopColor}></div>
+              <div className={styles.desktopColor} ref={rightRef}></div>
+              <div className={styles.desktopColor} ref={rightRef}></div>
+              <div className={styles.desktopColor} ref={rightRef}></div>
             </div>
           </div>
         </div>
