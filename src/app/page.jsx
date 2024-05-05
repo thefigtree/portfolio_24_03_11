@@ -22,7 +22,7 @@ export default function Home() {
     let mm = gsap.matchMedia();
 
     mm.add("(min-width: 600px)", () => {
-      console.log("desktop");
+      // console.log("desktop");
 
       ScrollTrigger.create({
         trigger: "galleryRef",
