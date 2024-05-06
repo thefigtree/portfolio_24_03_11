@@ -1,11 +1,13 @@
 "use client";
 import { useLayoutEffect, useRef } from "react";
 import styles from "./page.module.css";
-import gsap from "gsap";
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import { motion } from "framer-motion";
 // import { useEffect } from "react";
 // import useMousePosition from "./../utils/useMousePosition";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const leftRef = useRef(null);
@@ -14,22 +16,52 @@ export default function Home() {
   const pinRef = useRef(null);
   useLayoutEffect(() => {
     // let Elem = galleryRef.current;
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.set(rightRef, { yPercent: 101 });
 
-    const allPhotos = gsap.utils.toArray(".desktopPhoto");
+    // let leftElem = leftRef.current;
+    // let rightElem = rightRef.current;
+    // let galleryElem = galleryRef.current;
+    // let pinElem = pinRef.current;
+
+    // gsap.set(rightElem, { yPercent: 101 });
+
+    // const allPhotos = gsap.utils.toArray(".desktopPhoto");
 
     let mm = gsap.matchMedia();
 
     mm.add("(min-width: 600px)", () => {
-      // console.log("desktop");
+      console.log("desktop");
 
-      ScrollTrigger.create({
-        trigger: "galleryRef",
-        start: "top top",
-        end: "bottom bottom",
-        pin: "pinRef",
-      });
+      let leftElem = leftRef.current;
+      let rightElem = rightRef.current;
+      let galleryElem = galleryRef.current;
+      let pinElem = pinRef.current;
+
+      gsap.set(rightElem, { yPercent: 101 });
+
+      // ScrollTrigger.create({
+      //   trigger: `${galleryElem}`,
+      //   start: "top top",
+      //   end: "bottom bottom",
+      //   pin: `${pinElem}`,
+      // });
+
+      // let t1 = gsap.timeline({
+      //   scrollTrigger: {
+      //     trigger: `${galleryElem}`,
+      //     start: "top top",
+      //     end: "bottom bottom",
+
+      //     pin: `${pinElem}`,
+
+      //     markers: true,
+      //   },
+      // });
+
+      return () => {
+        // optional
+        // custom cleanup code here (runs when it STOPS matching)
+        console.log("mobile");
+      };
     });
   }, []);
 
