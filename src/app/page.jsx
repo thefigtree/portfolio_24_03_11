@@ -1,6 +1,7 @@
 "use client";
 import { useLayoutEffect, useRef } from "react";
 import styles from "./page.module.css";
+// import gsap from "gsap";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import { motion } from "framer-motion";
@@ -14,7 +15,26 @@ export default function Home() {
   const rightRef = useRef(null);
   const galleryRef = useRef(null);
   const pinRef = useRef(null);
+  const ref = useRef(null);
   useLayoutEffect(() => {
+    ScrollTrigger.matchMedia({
+      "(min-width: 600px)": function () {
+        console.log("desktop");
+
+        let rightElem = rightRef.current;
+        let galleryElem = galleryRef.current;
+        let pinElem = pinRef.current;
+
+        gsap.set(rightElem, { yPercent: 101 });
+
+        ScrollTrigger.create({
+          trigger: `${galleryElem}`,
+          start: "top top",
+          end: "bottom bottom",
+          pin: `${pinElem}`,
+        });
+      },
+    });
     // let Elem = galleryRef.current;
 
     // let leftElem = leftRef.current;
@@ -26,43 +46,60 @@ export default function Home() {
 
     // const allPhotos = gsap.utils.toArray(".desktopPhoto");
 
-    let mm = gsap.matchMedia();
+    // let mm = gsap.matchMedia();
 
-    mm.add("(min-width: 600px)", () => {
-      console.log("desktop");
+    // mm.add("(min-width: 600px)", () => {
+    //   console.log("desktop");
 
-      let leftElem = leftRef.current;
-      let rightElem = rightRef.current;
-      let galleryElem = galleryRef.current;
-      let pinElem = pinRef.current;
+    //   let leftElem = leftRef.current;
+    //   let rightElem = rightRef.current;
+    //   let galleryElem = galleryRef.current;
+    //   let pinElem = pinRef.current;
+    //   let allElem = ref.current;
 
-      gsap.set(rightElem, { yPercent: 101 });
+    //   gsap.set(rightElem, { yPercent: 101 });
 
-      // ScrollTrigger.create({
-      //   trigger: `${galleryElem}`,
-      //   start: "top top",
-      //   end: "bottom bottom",
-      //   pin: `${pinElem}`,
-      // });
+    //   // ScrollTrigger.create({
+    //   //   trigger: `${galleryElem}`,
+    //   //   start: "top top",
+    //   //   end: "bottom bottom",
+    //   //   pin: `${pinElem}`,
+    //   // });
 
-      // let t1 = gsap.timeline({
-      //   scrollTrigger: {
-      //     trigger: `${galleryElem}`,
-      //     start: "top top",
-      //     end: "bottom bottom",
+    //   let t1 = gsap.timeline({
+    //     scrollTrigger: {
+    //       trigger: `${galleryElem}`,
+    //       start: "top top",
+    //       end: "bottom bottom",
 
-      //     pin: `${pinElem}`,
+    //       pin: `${pinElem}`,
 
-      //     markers: true,
-      //   },
-      // });
+    //       markers: true,
+    //     },
+    //   });
 
-      return () => {
-        // optional
-        // custom cleanup code here (runs when it STOPS matching)
-        console.log("mobile");
-      };
-    });
+    //   leftElem.forEach((detail, index) => {
+    //     let headline = detail.querySelector("h1");
+    //     let animation = gsap
+    //       .timeline()
+    //       .to(rightElem[index], { yPercent: 0 })
+    //       .set(allElem[index], { autoAlpha: 0 });
+    //     ScrollTrigger.create({
+    //       trigger: headline,
+    //       start: "top 80%",
+    //       end: "top 50%",
+    //       animation: animation,
+    //       scrub: true,
+    //       markers: false,
+    //     });
+    //   });
+
+    //   return () => {
+    //     // optional
+    //     // custom cleanup code here (runs when it STOPS matching)
+    //     console.log("mobile");
+    //   };
+    // });
   }, []);
 
   // gsap.set(rightRef, { yPercent: 101 });
@@ -233,7 +270,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className={styles.desktopGallery}>
+            <div className={styles.desktopGallery} ref={ref}>
               <div className={styles.desktopColor}></div>
               <div className={styles.desktopColor} ref={rightRef}></div>
               <div className={styles.desktopColor} ref={rightRef}></div>
