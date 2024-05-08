@@ -1,14 +1,11 @@
 "use client";
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import styles from "./page.module.css";
-// import gsap from "gsap";
-import { gsap } from "gsap";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import { motion } from "framer-motion";
 // import { useEffect } from "react";
 // import useMousePosition from "./../utils/useMousePosition";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const leftRef = useRef(null);
@@ -16,91 +13,106 @@ export default function Home() {
   const galleryRef = useRef(null);
   const pinRef = useRef(null);
   const ref = useRef(null);
-  useLayoutEffect(() => {
-    ScrollTrigger.matchMedia({
-      "(min-width: 600px)": function () {
-        console.log("desktop");
 
-        let rightElem = rightRef.current;
-        let galleryElem = galleryRef.current;
-        let pinElem = pinRef.current;
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    requestAnimationFrame(animation);
 
-        gsap.set(rightElem, { yPercent: 101 });
+    let mm = gsap.matchMedia();
 
-        ScrollTrigger.create({
-          trigger: `${galleryElem}`,
-          start: "top top",
-          end: "bottom bottom",
-          pin: `${pinElem}`,
-        });
-      },
+    mm.add("(min-width: 600px)", () => {
+      console.log("desktop");
     });
-    // let Elem = galleryRef.current;
-
-    // let leftElem = leftRef.current;
-    // let rightElem = rightRef.current;
-    // let galleryElem = galleryRef.current;
-    // let pinElem = pinRef.current;
-
-    // gsap.set(rightElem, { yPercent: 101 });
-
-    // const allPhotos = gsap.utils.toArray(".desktopPhoto");
-
-    // let mm = gsap.matchMedia();
-
-    // mm.add("(min-width: 600px)", () => {
-    //   console.log("desktop");
-
-    //   let leftElem = leftRef.current;
-    //   let rightElem = rightRef.current;
-    //   let galleryElem = galleryRef.current;
-    //   let pinElem = pinRef.current;
-    //   let allElem = ref.current;
-
-    //   gsap.set(rightElem, { yPercent: 101 });
-
-    //   // ScrollTrigger.create({
-    //   //   trigger: `${galleryElem}`,
-    //   //   start: "top top",
-    //   //   end: "bottom bottom",
-    //   //   pin: `${pinElem}`,
-    //   // });
-
-    //   let t1 = gsap.timeline({
-    //     scrollTrigger: {
-    //       trigger: `${galleryElem}`,
-    //       start: "top top",
-    //       end: "bottom bottom",
-
-    //       pin: `${pinElem}`,
-
-    //       markers: true,
-    //     },
-    //   });
-
-    //   leftElem.forEach((detail, index) => {
-    //     let headline = detail.querySelector("h1");
-    //     let animation = gsap
-    //       .timeline()
-    //       .to(rightElem[index], { yPercent: 0 })
-    //       .set(allElem[index], { autoAlpha: 0 });
-    //     ScrollTrigger.create({
-    //       trigger: headline,
-    //       start: "top 80%",
-    //       end: "top 50%",
-    //       animation: animation,
-    //       scrub: true,
-    //       markers: false,
-    //     });
-    //   });
-
-    //   return () => {
-    //     // optional
-    //     // custom cleanup code here (runs when it STOPS matching)
-    //     console.log("mobile");
-    //   };
-    // });
   }, []);
+
+  const animation = () => {
+    gsap.set(rightRef.current, { yPercent: 101 });
+  };
+  // useLayoutEffect(() => {
+  //   ScrollTrigger.matchMedia({
+  //     "(min-width: 600px)": function () {
+  //       console.log("desktop");
+
+  //       let rightElem = rightRef.current;
+  //       let galleryElem = galleryRef.current;
+  //       let pinElem = pinRef.current;
+
+  //       gsap.set(rightElem, { yPercent: 101 });
+
+  //       ScrollTrigger.create({
+  //         trigger: `${galleryElem}`,
+  //         start: "top top",
+  //         end: "bottom bottom",
+  //         pin: `${pinElem}`,
+  //       });
+  //     },
+  //   });
+  //   // let Elem = galleryRef.current;
+
+  //   // let leftElem = leftRef.current;
+  //   // let rightElem = rightRef.current;
+  //   // let galleryElem = galleryRef.current;
+  //   // let pinElem = pinRef.current;
+
+  //   // gsap.set(rightElem, { yPercent: 101 });
+
+  //   // const allPhotos = gsap.utils.toArray(".desktopPhoto");
+
+  //   // let mm = gsap.matchMedia();
+
+  //   // mm.add("(min-width: 600px)", () => {
+  //   //   console.log("desktop");
+
+  //   //   let leftElem = leftRef.current;
+  //   //   let rightElem = rightRef.current;
+  //   //   let galleryElem = galleryRef.current;
+  //   //   let pinElem = pinRef.current;
+  //   //   let allElem = ref.current;
+
+  //   //   gsap.set(rightElem, { yPercent: 101 });
+
+  //   //   // ScrollTrigger.create({
+  //   //   //   trigger: `${galleryElem}`,
+  //   //   //   start: "top top",
+  //   //   //   end: "bottom bottom",
+  //   //   //   pin: `${pinElem}`,
+  //   //   // });
+
+  //   //   let t1 = gsap.timeline({
+  //   //     scrollTrigger: {
+  //   //       trigger: `${galleryElem}`,
+  //   //       start: "top top",
+  //   //       end: "bottom bottom",
+
+  //   //       pin: `${pinElem}`,
+
+  //   //       markers: true,
+  //   //     },
+  //   //   });
+
+  //   //   leftElem.forEach((detail, index) => {
+  //   //     let headline = detail.querySelector("h1");
+  //   //     let animation = gsap
+  //   //       .timeline()
+  //   //       .to(rightElem[index], { yPercent: 0 })
+  //   //       .set(allElem[index], { autoAlpha: 0 });
+  //   //     ScrollTrigger.create({
+  //   //       trigger: headline,
+  //   //       start: "top 80%",
+  //   //       end: "top 50%",
+  //   //       animation: animation,
+  //   //       scrub: true,
+  //   //       markers: false,
+  //   //     });
+  //   //   });
+
+  //   //   return () => {
+  //   //     // optional
+  //   //     // custom cleanup code here (runs when it STOPS matching)
+  //   //     console.log("mobile");
+  //   //   };
+  //   // });
+  // }, []);
 
   // gsap.set(rightRef, { yPercent: 101 });
   // gsap.registerPlugin(ScrollTrigger);
