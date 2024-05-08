@@ -22,6 +22,13 @@ export default function Home() {
 
     mm.add("(min-width: 600px)", () => {
       console.log("desktop");
+
+      ScrollTrigger.create({
+        trigger: "#galleryref",
+        start: "top top",
+        end: "bottom bottom",
+        // pin: `${pinRef}`,
+      });
     });
   }, []);
 
@@ -178,7 +185,7 @@ export default function Home() {
   return (
     <>
       <main className={styles.main}>
-        <div className={styles.gallery} ref={galleryRef}>
+        <div className={styles.gallery} ref={galleryRef} id={styles.galleryref}>
           <div className={styles.left}>
             <div className={styles.content}>
               <div className={styles.section}>
