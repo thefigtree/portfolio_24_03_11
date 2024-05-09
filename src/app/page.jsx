@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import styles from "./page.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -14,7 +14,7 @@ export default function Home() {
   const pinRef = useRef(null);
   const ref = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     requestAnimationFrame(animation);
 
@@ -23,12 +23,29 @@ export default function Home() {
     mm.add("(min-width: 600px)", () => {
       console.log("desktop");
 
+      // const tl = gsap.timeline({
+      //   // yes, we can add it to an entire timeline!
+      //   scrollTrigger: {
+      //     trigger: galleryRef.current,
+      //     start: "top top",
+      //     end: "bottom bottom",
+      //     pin: pinRef.current,
+      //     markers: true,
+      //   },
+      // });
+
       ScrollTrigger.create({
-        trigger: "#galleryref",
+        trigger: galleryRef.current,
         start: "top top",
         end: "bottom bottom",
-        // pin: `${pinRef}`,
+        pin: pinRef.current,
       });
+
+      return () => {
+        // optional
+        // custom cleanup code here (runs when it STOPS matching)
+        console.log("mobile");
+      };
     });
   }, []);
 
@@ -185,7 +202,7 @@ export default function Home() {
   return (
     <>
       <main className={styles.main}>
-        <div className={styles.gallery} ref={galleryRef} id={styles.galleryref}>
+        <div className={styles.gallery} ref={galleryRef} id="galleryref">
           <div className={styles.left}>
             <div className={styles.content}>
               <div className={styles.section}>
@@ -248,7 +265,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={styles.right} ref={pinRef}>
+          <div className={styles.right} ref={pinRef} id="pinref">
             <div className={styles.moContent}>
               <div className={styles.moRed}></div>
               <h1>Red</h1>
