@@ -73,10 +73,10 @@ a {
   background-color: MediumSeaGreen;
 }
 .desktopColor:nth-child(3) {
-  background-color: dodgerblue;
+  background-color: deepPink;
 }
 .desktopColor:nth-child(4) {
-  background-color: deepPink;
+  background-color: dodgerblue;
 }
 /* .desktopGreen {
   position: absolute;
@@ -130,6 +130,22 @@ a {
   border-radius: 6vw;
   background-color: dodgerblue;
 }
+
+/* .red {
+  background: crimson;
+}
+
+.green {
+  background: MediumSeaGreen;
+}
+
+.blue {
+  background: dodgerblue;
+}
+
+.pink {
+  background: deepPink;
+} */
 
 @media screen and (max-width: 599px) {
   .left {
