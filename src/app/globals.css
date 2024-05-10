@@ -34,7 +34,6 @@ a {
 
 .right {
   height: 100vh;
-  /* outline:1px solid purple; */
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -68,7 +67,6 @@ a {
   height: 100%;
   background-color: crimson;
 }
-
 .desktopColor:nth-child(2) {
   background-color: MediumSeaGreen;
 }
@@ -78,24 +76,6 @@ a {
 .desktopColor:nth-child(4) {
   background-color: dodgerblue;
 }
-/* .desktopGreen {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: MediumSeaGreen;
-}
-.desktopPink {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: dodgerblue;
-}
-.desktopBlue {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: deepPink;
-} */
 
 .moContent {
   display: none;
@@ -130,22 +110,6 @@ a {
   border-radius: 6vw;
   background-color: dodgerblue;
 }
-
-/* .red {
-  background: crimson;
-}
-
-.green {
-  background: MediumSeaGreen;
-}
-
-.blue {
-  background: dodgerblue;
-}
-
-.pink {
-  background: deepPink;
-} */
 
 @media screen and (max-width: 599px) {
   .left {
