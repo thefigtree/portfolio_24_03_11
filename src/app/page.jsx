@@ -8,15 +8,21 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import useMousePosition from "./../utils/useMousePosition";
 
 export default function Home() {
-  const leftRef = useRef(null);
-  const rightRef = useRef(null);
-  const galleryRef = useRef(null);
-  const pinRef = useRef(null);
-  const ref = useRef(null);
+  // const leftRef = useRef(null);
+  // const rightRef = useRef(null);
+  // const galleryRef = useRef(null);
+  // const pinRef = useRef(null);
+  // const ref = useRef(null);
 
   useLayoutEffect(() => {
+    const details = gsap.utils.toArray(".section:not(:first-child)");
+    const photos = gsap.utils.toArray(".desktopColor:not(:first-child)");
+    gsap.set(photos, { yPercent: 101 });
+
+    const allPhotos = gsap.utils.toArray(".desktopColor");
+
     gsap.registerPlugin(ScrollTrigger);
-    requestAnimationFrame(animation);
+    // requestAnimationFrame(animation);
 
     let mm = gsap.matchMedia();
 
@@ -35,10 +41,26 @@ export default function Home() {
       // });
 
       ScrollTrigger.create({
-        trigger: galleryRef.current,
+        trigger: ".gallery",
         start: "top top",
         end: "bottom bottom",
-        pin: pinRef.current,
+        pin: ".right",
+      });
+
+      details.forEach((detail, index) => {
+        let headline = detail.querySelector("h1");
+        let animation = gsap
+          .timeline()
+          .to(photos[index], { yPercent: 0 })
+          .set(allPhotos[index], { autoAlpha: 0 });
+        ScrollTrigger.create({
+          trigger: headline,
+          start: "top 80%",
+          end: "top 50%",
+          animation: animation,
+          scrub: true,
+          markers: false,
+        });
       });
 
       return () => {
@@ -49,9 +71,9 @@ export default function Home() {
     });
   }, []);
 
-  const animation = () => {
-    gsap.set(rightRef.current, { yPercent: 101 });
-  };
+  // const animation = () => {
+  //   gsap.set(`${photos}`, { yPercent: 101 });
+  // };
   // useLayoutEffect(() => {
   //   ScrollTrigger.matchMedia({
   //     "(min-width: 600px)": function () {
@@ -202,10 +224,10 @@ export default function Home() {
   return (
     <>
       <main className={styles.main}>
-        <div className={styles.gallery} ref={galleryRef} id="galleryref">
-          <div className={styles.left}>
-            <div className={styles.content}>
-              <div className={styles.section}>
+        <div className="gallery">
+          <div className="left">
+            <div className="content">
+              <div className="section">
                 <h1>Red</h1>
                 <p>
                   Red is a color often associated with strong emotions such as
@@ -215,7 +237,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className={styles.section} ref={leftRef}>
+              <div className="section">
                 <h1>Green</h1>
                 <p>
                   Green is a color that is often associated with nature, growth,
@@ -227,7 +249,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className={styles.section} ref={leftRef}>
+              <div className="section">
                 <h1>Pink</h1>
                 <p>
                   Pink is a color that is often associated with femininity,
@@ -251,7 +273,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className={styles.section} ref={leftRef}>
+              <div className="section">
                 <h1>Blue</h1>
                 <p>
                   Blue is a color that is often associated with calmness, trust,
@@ -265,16 +287,16 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={styles.right} ref={pinRef} id="pinref">
-            <div className={styles.moContent}>
-              <div className={styles.moRed}></div>
+          <div className="right">
+            <div className="moContent">
+              <div className="moRed"></div>
               <h1>Red</h1>
               <p>
                 Red is a color often associated with strong emotions such as
                 passion, love, and anger. It's a bold and attention-grabbing
                 color that can evoke feelings of excitement, warmth, and energy.
               </p>
-              <div className={styles.moGreen}></div>
+              <div className="moGreen"></div>
               <h1>Green</h1>
               <p>
                 Green is a color that is often associated with nature, growth,
@@ -284,7 +306,7 @@ export default function Home() {
                 making it a popular choice for branding and marketing in the
                 health and wellness industry.
               </p>
-              <div className={styles.moPink}></div>
+              <div className="moPink"></div>
               <h1>Pink</h1>
               <p>
                 Pink is a color that is often associated with femininity,
@@ -294,7 +316,7 @@ export default function Home() {
                 target a female audience or to promote products that are
                 associated with beauty, love, or romance.
               </p>
-              <div className={styles.moBlue}></div>
+              <div className="moBlue"></div>
               <h1>Blue</h1>
               <p>
                 Blue is a color that is often associated with calmness, trust,
@@ -306,11 +328,11 @@ export default function Home() {
               </p>
             </div>
 
-            <div className={styles.desktopGallery} ref={ref}>
-              <div className={styles.desktopColor}></div>
-              <div className={styles.desktopColor} ref={rightRef}></div>
-              <div className={styles.desktopColor} ref={rightRef}></div>
-              <div className={styles.desktopColor} ref={rightRef}></div>
+            <div className="desktopGallery">
+              <div className="desktopColor"></div>
+              <div className="desktopColor"></div>
+              <div className="desktopColor"></div>
+              <div className="desktopColor"></div>
             </div>
           </div>
         </div>
