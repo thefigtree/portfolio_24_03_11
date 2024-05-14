@@ -1,6 +1,5 @@
 "use client";
 import { useLayoutEffect } from "react";
-import styles from "./page.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
