@@ -38,7 +38,7 @@ export default function Home() {
           end: "top 50%",
           animation: animation,
           scrub: true,
-          markers: false,
+          markers: true,
         });
       });
 
@@ -56,6 +56,7 @@ export default function Home() {
 
   return (
     <>
+      {/* <div className="spacer"></div> */}
       <div className="gallery">
         <div className="left">
           <div className="content">
