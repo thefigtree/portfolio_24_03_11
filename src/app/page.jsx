@@ -1,17 +1,22 @@
 "use client";
-import { useLayoutEffect } from "react";
+
+import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { useScrollTop } from "lib/useScrollTop";
 
 export default function Home() {
-  useLayoutEffect(() => {
+  // useScrollTop();
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     const details = gsap.utils.toArray(".section:not(:first-child)");
     const photos = gsap.utils.toArray(".desktopColor:not(:first-child)");
     gsap.set(photos, { yPercent: 101 });
 
     const allPhotos = gsap.utils.toArray(".desktopColor");
 
-    gsap.registerPlugin(ScrollTrigger);
     // requestAnimationFrame(animation);
 
     let mm = gsap.matchMedia();
@@ -56,7 +61,6 @@ export default function Home() {
 
   return (
     <>
-      {/* <div className="spacer"></div> */}
       <div className="gallery">
         <div className="left">
           <div className="content">
@@ -168,6 +172,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* <div className="stack"></div> */}
     </>
   );
 }
