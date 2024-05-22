@@ -173,7 +173,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* <div className="stack"></div> */}
+      <div className="stack"></div>
     </>
   );
 }
