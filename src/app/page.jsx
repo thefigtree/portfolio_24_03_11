@@ -3,11 +3,8 @@
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import { useScrollTop } from "lib/useScrollTop";
 
 export default function Home() {
-  // useScrollTop();
-
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
