@@ -42,6 +42,9 @@ export default function Home() {
           scrub: true,
           markers: true,
         });
+        // ScrollTrigger.config({
+        //   autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
+        // });
       });
 
       return () => {
@@ -170,7 +173,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="stack">My Stack</div>
+      {/* <div className="stack">My Stack</div> */}
     </>
   );
 }
