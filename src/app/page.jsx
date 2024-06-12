@@ -65,7 +65,7 @@ export default function Home() {
         <div className="left">
           <div className="content">
             <div className="section">
-              <h1>Red</h1>
+              <h1>Portfolio 1</h1>
               <p>
                 Red is a color often associated with strong emotions such as
                 passion, love, and anger. It's a bold and attention-grabbing
@@ -74,7 +74,7 @@ export default function Home() {
             </div>
 
             <div className="section">
-              <h1>Green</h1>
+              <h1>Portfolio 2</h1>
               <p>
                 Green is a color that is often associated with nature, growth,
                 and harmony. It is a calming and relaxing color that can evoke
@@ -86,7 +86,7 @@ export default function Home() {
             </div>
 
             <div className="section">
-              <h1>Pink</h1>
+              <h1>Portfolio 3</h1>
               <p>
                 Pink is a color that is often associated with femininity,
                 romance, and sweetness. It is a softer and more delicate shade
@@ -110,7 +110,7 @@ export default function Home() {
             </div>
 
             <div className="section">
-              <h1>Blue</h1>
+              <h1>Portfolio 4</h1>
               <p>
                 Blue is a color that is often associated with calmness, trust,
                 and reliability. It is a peaceful and serene color that can
@@ -126,14 +126,14 @@ export default function Home() {
         <div className="right">
           <div className="moContent">
             <div className="moRed"></div>
-            <h1>Red</h1>
+            <h1>Portfolio 1</h1>
             <p>
               Red is a color often associated with strong emotions such as
               passion, love, and anger. It's a bold and attention-grabbing color
               that can evoke feelings of excitement, warmth, and energy.
             </p>
             <div className="moGreen"></div>
-            <h1>Green</h1>
+            <h1>Portfolio 2</h1>
             <p>
               Green is a color that is often associated with nature, growth, and
               harmony. It is a calming and relaxing color that can evoke
@@ -143,7 +143,7 @@ export default function Home() {
               health and wellness industry.
             </p>
             <div className="moPink"></div>
-            <h1>Pink</h1>
+            <h1>Portfolio 3</h1>
             <p>
               Pink is a color that is often associated with femininity, romance,
               and sweetness. It is a softer and more delicate shade of red that
@@ -153,7 +153,7 @@ export default function Home() {
               love, or romance.
             </p>
             <div className="moBlue"></div>
-            <h1>Blue</h1>
+            <h1>Portfolio 4</h1>
             <p>
               Blue is a color that is often associated with calmness, trust, and
               reliability. It is a peaceful and serene color that can evoke
