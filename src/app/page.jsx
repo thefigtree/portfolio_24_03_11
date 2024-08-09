@@ -26,7 +26,7 @@ export default function Home() {
         let animation = gsap
           .timeline()
           .to(photos[index], { yPercent: 0 })
-          .set(allPhotos[index], { autoAlpha: 0 });
+          .to(allPhotos[index], { autoAlpha: 0 });
         ScrollTrigger.create({
           trigger: headline,
           start: "top 80%",
