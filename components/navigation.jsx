@@ -5,19 +5,19 @@ export default function Navigation() {
   const links = [
     {
       path: "/",
-      name: "Home",
+      name: "J!N",
+    },
+    {
+      path: "/projects",
+      name: "Projects",
     },
     {
       path: "/about",
       name: "About",
     },
     {
-      path: "/project",
-      name: "Project",
-    },
-    {
-      path: "/contact",
-      name: "Contact",
+      path: "/contacts",
+      name: "Contacts",
     },
   ];
 
