@@ -26,7 +26,7 @@ export default function Navigation() {
       <ul className={style.menu}>
         {links.map((link) => {
           return (
-            <li key={link.path}>
+            <li className={style.menubtn} key={link.path}>
               <Link href={link.path}>{link.name}</Link>
             </li>
           );
