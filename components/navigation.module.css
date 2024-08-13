@@ -8,8 +8,13 @@
   top: 0;
   left: 0;
   z-index: 10;
-  background-color: red;
   color: #6e6e73;
+}
+
+.logo {
+  font-size: 24px;
+  position: absolute;
+  left: 50px;
 }
 
 .menu {
@@ -19,7 +24,6 @@
   letter-spacing: 0.5px;
   position: absolute;
   right: 15%;
-  background-color: blueviolet;
 }
 
 .menubtn {

@@ -23,17 +23,15 @@ export default function Navigation() {
         <Link href="/">j!n</Link>
       </div>
 
-      <nav>
-        <ul className={style.menu}>
-          {links.map((link) => {
-            return (
-              <li className={style.menubtn} key={link.path}>
-                <Link href={link.path}>{link.name}</Link>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
+      <ul className={style.menu}>
+        {links.map((link) => {
+          return (
+            <li className={style.menubtn} key={link.path}>
+              <Link href={link.path}>{link.name}</Link>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }
