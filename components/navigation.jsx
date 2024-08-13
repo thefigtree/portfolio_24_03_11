@@ -20,7 +20,7 @@ export default function Navigation() {
   return (
     <div className={style.header}>
       <div className={style.logo}>
-        <Link href="/">j!n</Link>
+        <Link href="/">J!N</Link>
       </div>
 
       <ul className={style.menu}>
