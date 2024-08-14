@@ -3,6 +3,8 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import Lenis from "lenis";
+import { useEffect } from "react";
 
 export default function Home() {
   useGSAP(() => {
@@ -45,6 +47,21 @@ export default function Home() {
       };
     });
   });
+
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    // lenis.on('scroll', (e) => {
+    //   console.log(e)
+    // })
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
 
   return (
     <>
