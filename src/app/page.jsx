@@ -20,7 +20,7 @@ export default function Home() {
 
     let mm = gsap.matchMedia();
     mm.add("(min-width: 600px)", () => {
-      let updateColor = (color, text, rgbColor) => {
+      let updateColor = (rgbColor) => {
         Elem.style.backgroundColor = `rgba(${rgbColor}, 0.8)`;
       };
       console.log("desktop");
@@ -37,31 +37,27 @@ export default function Home() {
           .timeline()
           .to(Elem, {
             onStart: updateColor,
-            onStartParams: ["#9BB5CE", "Sierra Blue", "155, 181, 206"],
+            onStartParams: ["155, 181, 206"],
             onReverseComplete: updateColor,
-            onReverseCompleteParams: [
-              "#9BB5CE",
-              "Sierra Blue",
-              "155, 181, 206",
-            ],
+            onReverseCompleteParams: ["155, 181, 206"],
           })
           .to(Elem, {
             onStart: updateColor,
-            onStartParams: ["#F9E5C9", "Gold", "249, 229, 201"],
+            onStartParams: ["249, 229, 201"],
             onReverseComplete: updateColor,
-            onReverseCompleteParams: ["#F9E5C9", "Gold", "249, 229, 201"],
+            onReverseCompleteParams: ["249, 229, 201"],
           })
           .to(Elem, {
             onStart: updateColor,
-            onStartParams: ["#505F4E", "Alpine Green", "80, 95, 78"],
+            onStartParams: ["80, 95, 78"],
             onReverseComplete: updateColor,
-            onReverseCompleteParams: ["#505F4E", "Alpine Green", "80, 95, 78"],
+            onReverseCompleteParams: ["80, 95, 78"],
           })
           .to(Elem, {
             onStart: updateColor,
-            onStartParams: ["#574F6F", "Deep Purple", "87, 79, 111"],
+            onStartParams: ["87, 79, 111"],
             onReverseComplete: updateColor,
-            onReverseCompleteParams: ["#574F6F", "Deep Purple", "87, 79, 111"],
+            onReverseCompleteParams: ["87, 79, 111"],
           })
           .to(photos[index], { yPercent: 0 })
           .to(allPhotos[index], { autoAlpha: 0 });
