@@ -69,7 +69,7 @@ export default function Home() {
           scrub: true,
           markers: true,
           onEnter: () => {
-            gsap.to(Elem, { duration: 1.0, backgroundColor: "#ff0000" });
+            gsap.to(Elem, { duration: 1.0, backgroundColor: "#00ff44" });
           },
 
           onLeaveBack: () => {
