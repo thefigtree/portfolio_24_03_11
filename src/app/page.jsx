@@ -68,13 +68,6 @@ export default function Home() {
           animation: animation,
           scrub: true,
           markers: true,
-          // onEnter: () => {
-          //   gsap.to(Elem, { duration: 1.0, backgroundColor: "#00ff44" });
-          // },
-
-          // onLeaveBack: () => {
-          //   gsap.to(Elem, { duration: 1.0, backgroundColor: "#ffffff" });
-          // },
         });
       });
       return () => {
