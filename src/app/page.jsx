@@ -12,7 +12,7 @@ export default function Home() {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    let Elem = sectionRef.current;
+    // let Elem = sectionRef.current;
     const details = gsap.utils.toArray(".section:not(:first-child)");
     const photos = gsap.utils.toArray(".desktopColor:not(:first-child)");
     gsap.set(photos, { yPercent: 101 });
@@ -20,9 +20,9 @@ export default function Home() {
 
     let mm = gsap.matchMedia();
     mm.add("(min-width: 600px)", () => {
-      let updateColor = (rgbColor) => {
-        Elem.style.backgroundColor = `rgba(${rgbColor}, 0.8)`;
-      };
+      // let updateColor = (rgbColor) => {
+      //   Elem.style.backgroundColor = `rgba(${rgbColor}, 0.8)`;
+      // };
       console.log("desktop");
       ScrollTrigger.create({
         trigger: ".gallery",
