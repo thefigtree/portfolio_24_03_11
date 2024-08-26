@@ -12,18 +12,17 @@ export default function Home() {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // let Elem = sectionRef.current;
+    let Elem = sectionRef.current;
+    let updateColor = (rgbColor) => {
+      Elem.style.backgroundColor = `rgba(${rgbColor}, 0.8)`;
+    };
     const details = gsap.utils.toArray(".section:not(:first-child)");
     const photos = gsap.utils.toArray(".desktopColor:not(:first-child)");
     gsap.set(photos, { yPercent: 101 });
     const allPhotos = gsap.utils.toArray(".desktopColor");
-
     let mm = gsap.matchMedia();
+
     mm.add("(min-width: 600px)", () => {
-      // let updateColor = (rgbColor) => {
-      //   Elem.style.backgroundColor = `rgba(${rgbColor}, 0.8)`;
-      // };
-      console.log("desktop");
       ScrollTrigger.create({
         trigger: ".gallery",
         start: "top top",
@@ -35,32 +34,38 @@ export default function Home() {
         let headline = detail.querySelector("h1");
         let animation = gsap
           .timeline()
-          // .to(Elem, {
-          //   onStart: updateColor,
-          //   onStartParams: ["155, 181, 206"],
-          //   onReverseComplete: updateColor,
-          //   onReverseCompleteParams: ["155, 181, 206"],
-          // })
-          // .to(Elem, {
-          //   onStart: updateColor,
-          //   onStartParams: ["249, 229, 201"],
-          //   onReverseComplete: updateColor,
-          //   onReverseCompleteParams: ["249, 229, 201"],
-          // })
-          // .to(Elem, {
-          //   onStart: updateColor,
-          //   onStartParams: ["80, 95, 78"],
-          //   onReverseComplete: updateColor,
-          //   onReverseCompleteParams: ["80, 95, 78"],
-          // })
-          // .to(Elem, {
-          //   onStart: updateColor,
-          //   onStartParams: ["87, 79, 111"],
-          //   onReverseComplete: updateColor,
-          //   onReverseCompleteParams: ["87, 79, 111"],
+          // .to(".gallery", { duration: 1.0, backgroundColor: "#ff0000" })
+          // .to(".gallery", {
+          //   duration: 1.0,
+          //   backgroundColor: "rgba(155, 181, 206, 0.8)",
           // })
           .to(photos[index], { yPercent: 0 })
           .to(allPhotos[index], { autoAlpha: 0 });
+        // .to(Elem, {
+        //   onStart: updateColor,
+        //   onStartParams: ["155, 181, 206"],
+        //   onReverseComplete: updateColor,
+        //   onReverseCompleteParams: ["155, 181, 206"],
+        // })
+        // .to(Elem, {
+        //   onStart: updateColor,
+        //   onStartParams: ["249, 229, 201"],
+        //   onReverseComplete: updateColor,
+        //   onReverseCompleteParams: ["249, 229, 201"],
+        // });
+        // .to(Elem, {
+        //   onStart: updateColor,
+        //   onStartParams: ["80, 95, 78"],
+        //   onReverseComplete: updateColor,
+        //   onReverseCompleteParams: ["80, 95, 78"],
+        // })
+        // .to(Elem, {
+        //   onStart: updateColor,
+        //   onStartParams: ["87, 79, 111"],
+        //   onReverseComplete: updateColor,
+        //   onReverseCompleteParams: ["87, 79, 111"],
+        // });
+
         ScrollTrigger.create({
           trigger: headline,
           start: "top 80%",
@@ -68,6 +73,15 @@ export default function Home() {
           animation: animation,
           scrub: true,
           markers: true,
+          // onEnter: () => {
+          //   gsap.to(".gallery", { duration: 1.0, backgroundColor: "#ff0000" });
+          // },
+          // onEnterBack: () => {
+          //   gsap.to(".gallery", {
+          //     duration: 1.0,
+          //     backgroundColor: "rgba(155, 181, 206, 0.8)",
+          //   });
+          // },
         });
       });
       return () => {
