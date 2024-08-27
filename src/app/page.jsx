@@ -60,32 +60,32 @@ export default function Home() {
           //   backgroundColor: "#00ff8c",
           // })
           .to(photos[index], { yPercent: 0 })
-          .to(allPhotos[index], { autoAlpha: 0 });
+          .to(allPhotos[index], { autoAlpha: 0 })
 
-        // .to(sections[index], {
-        //   onStart: updateColor,
-        //   onStartParams: ["155, 181, 206"],
-        //   onReverseComplete: updateColor,
-        //   onReverseCompleteParams: ["155, 181, 206"],
-        // })
-        // .to(sections[index], {
-        //   onStart: updateColor,
-        //   onStartParams: ["249, 229, 201"],
-        //   onReverseComplete: updateColor,
-        //   onReverseCompleteParams: ["249, 229, 201"],
-        // })
-        // .to(sections[index], {
-        //   onStart: updateColor,
-        //   onStartParams: ["80, 95, 78"],
-        //   onReverseComplete: updateColor,
-        //   onReverseCompleteParams: ["80, 95, 78"],
-        // })
-        // .to(sections[index], {
-        //   onStart: updateColor,
-        //   onStartParams: ["87, 79, 111"],
-        //   onReverseComplete: updateColor,
-        //   onReverseCompleteParams: ["87, 79, 111"],
-        // });
+          .to(Elem, {
+            onStart: updateColor,
+            onStartParams: ["155, 181, 206"],
+            onReverseComplete: updateColor,
+            onReverseCompleteParams: ["155, 181, 206"],
+          })
+          .to(Elem, {
+            onStart: updateColor,
+            onStartParams: ["249, 229, 201"],
+            onReverseComplete: updateColor,
+            onReverseCompleteParams: ["249, 229, 201"],
+          })
+          .to(Elem, {
+            onStart: updateColor,
+            onStartParams: ["80, 95, 78"],
+            onReverseComplete: updateColor,
+            onReverseCompleteParams: ["80, 95, 78"],
+          })
+          .to(Elem, {
+            onStart: updateColor,
+            onStartParams: ["87, 79, 111"],
+            onReverseComplete: updateColor,
+            onReverseCompleteParams: ["87, 79, 111"],
+          });
 
         ScrollTrigger.create({
           trigger: headline,
