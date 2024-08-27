@@ -13,12 +13,14 @@ export default function Home() {
     gsap.registerPlugin(ScrollTrigger);
 
     let Elem = sectionRef.current;
-    let updateColor = (rgbColor) => {
-      Elem.style.backgroundColor = `rgba(${rgbColor}, 0.8)`;
-    };
+    // let updateColor = (rgbColor) => {
+    //   Elem.style.backgroundColor = `rgba(${rgbColor}, 0.8)`;
+    // };
+    const sections = gsap.utils.toArray(".gallery:not(:first-child");
     const details = gsap.utils.toArray(".section:not(:first-child)");
     const photos = gsap.utils.toArray(".desktopColor:not(:first-child)");
     gsap.set(photos, { yPercent: 101 });
+    // gsap.set(Elem, { backgroundColor: "rgba(155, 181, 206, 0.8)" });
     const allPhotos = gsap.utils.toArray(".desktopColor");
     let mm = gsap.matchMedia();
 
@@ -32,15 +34,29 @@ export default function Home() {
 
       details.forEach((detail, index) => {
         let headline = detail.querySelector("h1");
+        // let t1 = gsap.timeline({
+        //   scrollTrigger: {
+        //     trigger: headline,
+        //     start: "top top",
+        //     end: `${Elem.offsetWidth + 1000}`,
+        //     scrub: true,
+        //     // snap: 1,
+        //     pin: true,
+        //     pinSpacing: true,
+        //     markers: true,
+        //   },
+        // });
+
         let animation = gsap
           .timeline()
-          // .to(".gallery", { duration: 1.0, backgroundColor: "#ff0000" })
-          // .to(".gallery", {
-          //   duration: 1.0,
-          //   backgroundColor: "rgba(155, 181, 206, 0.8)",
-          // })
+          // .to(sections[index], { duration: 1.0, backgroundColor: "#ff0000" })
+          .to(sections[index], {
+            duration: 1.0,
+            backgroundColor: "#00ff8c",
+          })
           .to(photos[index], { yPercent: 0 })
           .to(allPhotos[index], { autoAlpha: 0 });
+
         // .to(Elem, {
         //   onStart: updateColor,
         //   onStartParams: ["155, 181, 206"],
@@ -52,7 +68,7 @@ export default function Home() {
         //   onStartParams: ["249, 229, 201"],
         //   onReverseComplete: updateColor,
         //   onReverseCompleteParams: ["249, 229, 201"],
-        // });
+        // })
         // .to(Elem, {
         //   onStart: updateColor,
         //   onStartParams: ["80, 95, 78"],
@@ -73,11 +89,61 @@ export default function Home() {
           animation: animation,
           scrub: true,
           markers: true,
-          // onEnter: () => {
-          //   gsap.to(".gallery", { duration: 1.0, backgroundColor: "#ff0000" });
+          // onUpdate: (self) => {
+          //   if (allPhotos[0]) {
+          //     gsap.to(Elem, {
+          //       onStart: updateColor,
+          //       onStartParams: ["155, 181, 206"],
+          //       onReverseComplete: updateColor,
+          //       onReverseCompleteParams: ["155, 181, 206"],
+          //     });
+          //   } else if (allPhotos[1]) {
+          //     gsap.to(Elem, {
+          //       onStart: updateColor,
+          //       onStartParams: ["249, 229, 201"],
+          //       onReverseComplete: updateColor,
+          //       onReverseCompleteParams: ["249, 229, 201"],
+          //     });
+          //   } else {
+          //     gsap.to(Elem, {
+          //       onStart: updateColor,
+          //       onStartParams: ["80, 95, 78"],
+          //       onReverseComplete: updateColor,
+          //       onReverseCompleteParams: ["80, 95, 78"],
+          //     });
+          //   }
           // },
+          onEnter: () => {
+            // if (t1) {
+            //   t1()
+            // }
+            // gsap.to(Elem, {
+            //   onStart: updateColor,
+            //   onStartParams: ["155, 181, 206"],
+            //   onReverseComplete: updateColor,
+            //   onReverseCompleteParams: ["155, 181, 206"],
+            // });
+            // gsap.to(Elem, {
+            //   onStart: updateColor,
+            //   onStartParams: ["249, 229, 201"],
+            //   onReverseComplete: updateColor,
+            //   onReverseCompleteParams: ["249, 229, 201"],
+            // });
+            // gsap.to(Elem, {
+            //   onStart: updateColor,
+            //   onStartParams: ["80, 95, 78"],
+            //   onReverseComplete: updateColor,
+            //   onReverseCompleteParams: ["80, 95, 78"],
+            // });
+            // gsap.to(Elem, {
+            //   onStart: updateColor,
+            //   onStartParams: ["87, 79, 111"],
+            //   onReverseComplete: updateColor,
+            //   onReverseCompleteParams: ["87, 79, 111"],
+            // });
+          },
           // onEnterBack: () => {
-          //   gsap.to(".gallery", {
+          //   gsap.to(Elem, {
           //     duration: 1.0,
           //     backgroundColor: "rgba(155, 181, 206, 0.8)",
           //   });
