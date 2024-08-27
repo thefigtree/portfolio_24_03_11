@@ -25,11 +25,11 @@ a {
 
 .gallery {
   display: flex;
-  background-color: rgba(155, 181, 206, 0.8);
 }
 
 .left {
   width: 50%;
+  background-color: rgba(155, 181, 206, 0.8);
 }
 
 .right {
@@ -38,6 +38,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: rgba(155, 181, 206, 0.8);
 }
 
 .content {

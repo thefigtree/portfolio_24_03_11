@@ -8,15 +8,20 @@ import { useEffect, useRef } from "react";
 
 export default function Home() {
   const sectionRef = useRef(null);
+  const leftRef = useRef(null);
+  const rightRef = useRef(null);
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     let Elem = sectionRef.current;
-    // let updateColor = (rgbColor) => {
-    //   Elem.style.backgroundColor = `rgba(${rgbColor}, 0.8)`;
-    // };
-    const sections = gsap.utils.toArray(".gallery:not(:first-child");
+    let leftElem = leftRef.current;
+    let rightElem = rightRef.current;
+    let updateColor = (rgbColor) => {
+      leftElem.style.backgroundColor = `rgba(${rgbColor}, 0.8)`;
+      rightElem.style.backgroundColor = `rgba(${rgbColor}, 0.8)`;
+    };
+    // const sections = gsap.utils.toArray(".gallery:not(:first-child");
     const details = gsap.utils.toArray(".section:not(:first-child)");
     const photos = gsap.utils.toArray(".desktopColor:not(:first-child)");
     gsap.set(photos, { yPercent: 101 });
@@ -50,32 +55,32 @@ export default function Home() {
         let animation = gsap
           .timeline()
           // .to(sections[index], { duration: 1.0, backgroundColor: "#ff0000" })
-          .to(sections[index], {
-            duration: 1.0,
-            backgroundColor: "#00ff8c",
-          })
+          // .to(sections[index], {
+          //   duration: 1.0,
+          //   backgroundColor: "#00ff8c",
+          // })
           .to(photos[index], { yPercent: 0 })
           .to(allPhotos[index], { autoAlpha: 0 });
 
-        // .to(Elem, {
+        // .to(sections[index], {
         //   onStart: updateColor,
         //   onStartParams: ["155, 181, 206"],
         //   onReverseComplete: updateColor,
         //   onReverseCompleteParams: ["155, 181, 206"],
         // })
-        // .to(Elem, {
+        // .to(sections[index], {
         //   onStart: updateColor,
         //   onStartParams: ["249, 229, 201"],
         //   onReverseComplete: updateColor,
         //   onReverseCompleteParams: ["249, 229, 201"],
         // })
-        // .to(Elem, {
+        // .to(sections[index], {
         //   onStart: updateColor,
         //   onStartParams: ["80, 95, 78"],
         //   onReverseComplete: updateColor,
         //   onReverseCompleteParams: ["80, 95, 78"],
         // })
-        // .to(Elem, {
+        // .to(sections[index], {
         //   onStart: updateColor,
         //   onStartParams: ["87, 79, 111"],
         //   onReverseComplete: updateColor,
@@ -113,35 +118,32 @@ export default function Home() {
           //     });
           //   }
           // },
-          onEnter: () => {
-            // if (t1) {
-            //   t1()
-            // }
-            // gsap.to(Elem, {
-            //   onStart: updateColor,
-            //   onStartParams: ["155, 181, 206"],
-            //   onReverseComplete: updateColor,
-            //   onReverseCompleteParams: ["155, 181, 206"],
-            // });
-            // gsap.to(Elem, {
-            //   onStart: updateColor,
-            //   onStartParams: ["249, 229, 201"],
-            //   onReverseComplete: updateColor,
-            //   onReverseCompleteParams: ["249, 229, 201"],
-            // });
-            // gsap.to(Elem, {
-            //   onStart: updateColor,
-            //   onStartParams: ["80, 95, 78"],
-            //   onReverseComplete: updateColor,
-            //   onReverseCompleteParams: ["80, 95, 78"],
-            // });
-            // gsap.to(Elem, {
-            //   onStart: updateColor,
-            //   onStartParams: ["87, 79, 111"],
-            //   onReverseComplete: updateColor,
-            //   onReverseCompleteParams: ["87, 79, 111"],
-            // });
-          },
+          // onEnter: () => {
+          //   gsap.to(Elem, {
+          //     onStart: updateColor,
+          //     onStartParams: ["155, 181, 206"],
+          //     onReverseComplete: updateColor,
+          //     onReverseCompleteParams: ["155, 181, 206"],
+          //   });
+          //   gsap.to(Elem, {
+          //     onStart: updateColor,
+          //     onStartParams: ["249, 229, 201"],
+          //     onReverseComplete: updateColor,
+          //     onReverseCompleteParams: ["249, 229, 201"],
+          //   });
+          //   gsap.to(Elem, {
+          //     onStart: updateColor,
+          //     onStartParams: ["80, 95, 78"],
+          //     onReverseComplete: updateColor,
+          //     onReverseCompleteParams: ["80, 95, 78"],
+          //   });
+          //   gsap.to(Elem, {
+          //     onStart: updateColor,
+          //     onStartParams: ["87, 79, 111"],
+          //     onReverseComplete: updateColor,
+          //     onReverseCompleteParams: ["87, 79, 111"],
+          //   });
+          // },
           // onEnterBack: () => {
           //   gsap.to(Elem, {
           //     duration: 1.0,
@@ -176,7 +178,7 @@ export default function Home() {
   return (
     <>
       <div className="gallery" ref={sectionRef}>
-        <div className="left">
+        <div className="left" ref={leftRef}>
           <div className="content">
             <div className="section">
               <h1>Portfolio 1</h1>
@@ -237,7 +239,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="right">
+        <div className="right" ref={rightRef}>
           <div className="moContent">
             <div className="moRed"></div>
             <h1>Portfolio 1</h1>
