@@ -8,24 +8,19 @@ import { useEffect, useRef } from "react";
 
 export default function Home() {
   const sectionRef = useRef(null);
-  const leftRef = useRef(null);
-  const rightRef = useRef(null);
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     let Elem = sectionRef.current;
-    let leftElem = leftRef.current;
-    let rightElem = rightRef.current;
-    let updateColor = (rgbColor) => {
-      leftElem.style.backgroundColor = `rgba(${rgbColor}, 0.8)`;
-      rightElem.style.backgroundColor = `rgba(${rgbColor}, 0.8)`;
-    };
+
+    // let updateColor = (rgbColor) => {
+    //   Elem.style.backgroundColor = `rgba(${rgbColor})`;
+    // };
     // const sections = gsap.utils.toArray(".gallery:not(:first-child");
     const details = gsap.utils.toArray(".section:not(:first-child)");
     const photos = gsap.utils.toArray(".desktopColor:not(:first-child)");
     gsap.set(photos, { yPercent: 101 });
-    // gsap.set(Elem, { backgroundColor: "rgba(155, 181, 206, 0.8)" });
     const allPhotos = gsap.utils.toArray(".desktopColor");
     let mm = gsap.matchMedia();
 
@@ -37,55 +32,83 @@ export default function Home() {
         pin: ".right",
       });
 
+      // let ani = gsap.to(Elem, {
+      //   duration: 0.5,
+      //   backgroundColor: "#ff0000",
+      // });
+      // .to(Elem, {
+      //   duration: 0.5,
+      //   backgroundColor: "#00ff8c",
+      // })
+      // .to(Elem, {
+      //   duration: 0.5,
+      //   backgroundColor: "#5900ff",
+      // });
+
+      // ScrollTrigger.create({
+      //   trigger: ".gallery",
+      //   start: "top top",
+      //   end: "bottom bottom",
+      //   // pin: ".right",
+      //   animation: ani,
+      // });
+
+      // let t1 = gsap.timeline({
+      //   scrollTrigger: {
+      //     trigger: Elem,
+      //     start: "top top",
+      //     end: `${Elem.offsetWidth + 1000}`,
+      //     scrub: true,
+      //     // snap: 1,
+      //     pin: true,
+      //     pinSpacing: true,
+      //     markers: true,
+      //   },
+      // });
+      // t1.to(Elem, {
+      //   onStart: updateColor,
+      //   onStartParams: ["155, 181, 206"],
+      //   onReverseComplete: updateColor,
+      //   onReverseCompleteParams: ["155, 181, 206"],
+      // });
+      // t1.to(Elem, {
+      //   onStart: updateColor,
+      //   onStartParams: ["249, 229, 201"],
+      //   onReverseComplete: updateColor,
+      //   onReverseCompleteParams: ["249, 229, 201"],
+      // });
+      // t1.to(Elem, {
+      //   onStart: updateColor,
+      //   onStartParams: ["80, 95, 78"],
+      //   onReverseComplete: updateColor,
+      //   onReverseCompleteParams: ["80, 95, 78"],
+      // });
+      // t1.to(Elem, {
+      //   onStart: updateColor,
+      //   onStartParams: ["87, 79, 111"],
+      //   onReverseComplete: updateColor,
+      //   onReverseCompleteParams: ["87, 79, 111"],
+      // });
+
       details.forEach((detail, index) => {
         let headline = detail.querySelector("h1");
-        // let t1 = gsap.timeline({
-        //   scrollTrigger: {
-        //     trigger: headline,
-        //     start: "top top",
-        //     end: `${Elem.offsetWidth + 1000}`,
-        //     scrub: true,
-        //     // snap: 1,
-        //     pin: true,
-        //     pinSpacing: true,
-        //     markers: true,
-        //   },
-        // });
 
         let animation = gsap
           .timeline()
-          // .to(sections[index], { duration: 1.0, backgroundColor: "#ff0000" })
-          // .to(sections[index], {
-          //   duration: 1.0,
-          //   backgroundColor: "#00ff8c",
-          // })
           .to(photos[index], { yPercent: 0 })
-          .to(allPhotos[index], { autoAlpha: 0 })
+          .to(allPhotos[index], { autoAlpha: 0 });
 
-          .to(Elem, {
-            onStart: updateColor,
-            onStartParams: ["155, 181, 206"],
-            onReverseComplete: updateColor,
-            onReverseCompleteParams: ["155, 181, 206"],
-          })
-          .to(Elem, {
-            onStart: updateColor,
-            onStartParams: ["249, 229, 201"],
-            onReverseComplete: updateColor,
-            onReverseCompleteParams: ["249, 229, 201"],
-          })
-          .to(Elem, {
-            onStart: updateColor,
-            onStartParams: ["80, 95, 78"],
-            onReverseComplete: updateColor,
-            onReverseCompleteParams: ["80, 95, 78"],
-          })
-          .to(Elem, {
-            onStart: updateColor,
-            onStartParams: ["87, 79, 111"],
-            onReverseComplete: updateColor,
-            onReverseCompleteParams: ["87, 79, 111"],
-          });
+        // .from(details[0], {
+        //   scrollTrigger: {
+        //     trigger: headline,
+        //     start: "center center",
+        //     end: "bottom bottom",
+        //     scrub: true,
+        //   },
+        //   duration: 0.5,
+        //   backgroundColor: "#fef6e4",
+        //   ease: "none",
+        // })
 
         ScrollTrigger.create({
           trigger: headline,
@@ -94,6 +117,7 @@ export default function Home() {
           animation: animation,
           scrub: true,
           markers: true,
+
           // onUpdate: (self) => {
           //   if (allPhotos[0]) {
           //     gsap.to(Elem, {
@@ -178,7 +202,7 @@ export default function Home() {
   return (
     <>
       <div className="gallery" ref={sectionRef}>
-        <div className="left" ref={leftRef}>
+        <div className="left">
           <div className="content">
             <div className="section">
               <h1>Portfolio 1</h1>
@@ -239,7 +263,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="right" ref={rightRef}>
+        <div className="right">
           <div className="moContent">
             <div className="moRed"></div>
             <h1>Portfolio 1</h1>
