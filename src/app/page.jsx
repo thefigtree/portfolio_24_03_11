@@ -30,7 +30,17 @@ export default function Home() {
         start: "top top",
         end: "bottom bottom",
         pin: ".right",
+        onEnter: () => {
+          gsap.to(Elem, {
+            duration: 1.0,
+            backgroundColor: "rgba(0, 116, 224, 0.8)",
+          });
+        },
       });
+
+      // ScrollTrigger.create({
+      //   trigger
+      // })
 
       // let ani = gsap.to(Elem, {
       //   duration: 0.5,
