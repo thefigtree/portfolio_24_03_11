@@ -113,6 +113,7 @@ export default function Home() {
         //   backgroundColor: "#fef6e4",
         //   ease: "none",
         // })
+        console.log(headline);
 
         ScrollTrigger.create({
           trigger: headline,
