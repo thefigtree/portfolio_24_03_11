@@ -14,9 +14,9 @@ export default function Home() {
 
     let Elem = sectionRef.current;
 
-    // let updateColor = (rgbColor) => {
-    //   Elem.style.backgroundColor = `rgba(${rgbColor})`;
-    // };
+    let updateColor = (rgbColor) => {
+      Elem.style.backgroundColor = `rgba(${rgbColor})`;
+    };
     // const sections = gsap.utils.toArray(".gallery:not(:first-child");
     const details = gsap.utils.toArray(".section:not(:first-child)");
     const photos = gsap.utils.toArray(".desktopColor:not(:first-child)");
@@ -113,7 +113,39 @@ export default function Home() {
         //   backgroundColor: "#fef6e4",
         //   ease: "none",
         // })
+        // console.log(headline.offsetTop);
         console.log(headline);
+
+        // ScrollTrigger.create({
+        //   trigger: headline,
+        //   start: "top 80%",
+        //   end: "top 50%",
+        //   onEnter: () => {
+        //     gsap.to(Elem, {
+        //       onStart: updateColor,
+        //       onStartParams: ["155, 181, 206"],
+        //       onReverseComplete: updateColor,
+        //       onReverseCompleteParams: ["155, 181, 206"],
+        //     });
+        //     gsap.to(Elem, {
+        //       onStart: updateColor,
+        //       onStartParams: ["249, 229, 201"],
+        //       onReverseComplete: updateColor,
+        //       onReverseCompleteParams: ["249, 229, 201"],
+        //     });
+        //     gsap.to(Elem, {
+        //       onStart: updateColor,
+        //       onStartParams: ["80, 95, 78"],
+        //       onReverseComplete: updateColor,
+        //       onReverseCompleteParams: ["80, 95, 78"],
+        //     });
+        //     gsap.to(Elem, {
+        //       onStart: updateColor,
+        //       onStartParams: ["87, 79, 111"],
+        //       onReverseComplete: updateColor,
+        //       onReverseCompleteParams: ["87, 79, 111"],
+        //     });
+        // });
 
         ScrollTrigger.create({
           trigger: headline,
@@ -122,12 +154,10 @@ export default function Home() {
           animation: animation,
           scrub: true,
           markers: true,
-          // onEnter: () => {
-          //   gsap.to(Elem, {
-          //     duration: 1.0,
-          //     backgroundColor: "rgba(0, 116, 224, 0.8)",
-          //   });
-          // },
+          // onStart: updateColor,
+          // onStartParams: ["80, 95, 78"],
+          // onReverseComplete: updateColor,
+          // onReverseCompleteParams: ["80, 95, 78"],
 
           // onUpdate: (self) => {
           //   if (allPhotos[0]) {
@@ -177,12 +207,6 @@ export default function Home() {
           //     onStartParams: ["87, 79, 111"],
           //     onReverseComplete: updateColor,
           //     onReverseCompleteParams: ["87, 79, 111"],
-          //   });
-          // },
-          // onEnterBack: () => {
-          //   gsap.to(Elem, {
-          //     duration: 1.0,
-          //     backgroundColor: "rgba(155, 181, 206, 0.8)",
           //   });
           // },
         });
