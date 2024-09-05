@@ -25,7 +25,6 @@ a {
 
 .gallery {
   display: flex;
-  background-color: rgba(155, 181, 206);
 }
 
 .left {
