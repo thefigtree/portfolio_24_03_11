@@ -18,7 +18,13 @@ export default function Home() {
     //   Elem.style.backgroundColor = `rgba(${rgbColor})`;
     // };
 
-    const colors = ["#ffd900", "#00ff22", "#1130ff", "#ff006a", "#886648"];
+    const colors = [
+      "#ff3b5f",
+      "rgb(159, 255, 202)",
+      "rgb(255, 178, 219)",
+      "rgb(133, 194, 255)",
+      "#2E4D71",
+    ];
 
     let mm = gsap.matchMedia();
 
@@ -41,11 +47,13 @@ export default function Home() {
               (i === 0 && self.direction < 0) ||
               (i === details.length - 1 && self.direction > 0)
             ) {
-              gsap.to(".gallery", { backgroundColor: "#ffd900" });
+              gsap.to(".gallery", { backgroundColor: "#ff3b5f" });
             }
           },
         });
       });
+
+      // console.log();
 
       ScrollTrigger.create({
         trigger: ".gallery",
@@ -59,8 +67,6 @@ export default function Home() {
 
         let animation = gsap
           .timeline()
-
-          // .to(Elem, { backgroundColor: "#ff0000" })
           .to(photos[index], { yPercent: 0 })
           .to(allPhotos[index], { autoAlpha: 0 });
 
@@ -73,11 +79,11 @@ export default function Home() {
           markers: true,
         });
       });
-      // return () => {
-      //   // optional
-      //   // custom cleanup code here (runs when it STOPS matching)
-      //   console.log("mobile");
-      // };
+      return () => {
+        // optional
+        // custom cleanup code here (runs when it STOPS matching)
+        console.log("mobile");
+      };
     });
 
     mm.add("(max-width: 665px)", () => {
@@ -100,7 +106,7 @@ export default function Home() {
               (i === 0 && self.direction < 0) ||
               (i === details.length - 1 && self.direction > 0)
             ) {
-              gsap.to(".gallery", { backgroundColor: "#2E4D71" });
+              gsap.to(".gallery", { backgroundColor: "#ff3b5f" });
             }
           },
         });

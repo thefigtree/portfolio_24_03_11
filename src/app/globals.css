@@ -25,6 +25,7 @@ a {
 
 .gallery {
   display: flex;
+  /* background-color: #ff3b5f; */
 }
 
 .left {
