@@ -23,7 +23,7 @@ export default function Home() {
       "rgb(159, 255, 202)",
       "rgb(255, 178, 219)",
       "rgb(133, 194, 255)",
-      "#2E4D71",
+      // "#2E4D71",
     ];
 
     let mm = gsap.matchMedia();
