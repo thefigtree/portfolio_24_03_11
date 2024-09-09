@@ -12,48 +12,16 @@ export default function Home() {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // let Elem = sectionRef.current;
-
-    // let updateColor = (rgbColor) => {
-    //   Elem.style.backgroundColor = `rgba(${rgbColor})`;
-    // };
-
-    const colors = [
-      "#ff3b5f",
-      "rgb(159, 255, 202)",
-      "rgb(255, 178, 219)",
-      "rgb(133, 194, 255)",
-      // "#2E4D71",
-    ];
+    const colors = ["#ff9797", "#a7ffac", "#ffc4fc", "#8b89fe", "#886648"];
 
     let mm = gsap.matchMedia();
 
     mm.add("(min-width: 666px)", () => {
       const details = gsap.utils.toArray(".section:not(:first-child)");
       const photos = gsap.utils.toArray(".desktopColor:not(:first-child)");
-      gsap.set(photos, { yPercent: 101 });
       const allPhotos = gsap.utils.toArray(".desktopColor");
 
-      details.forEach((section, i) => {
-        let bgColor = colors[i + 1];
-        ScrollTrigger.create({
-          trigger: section,
-          start: "200 bottom",
-          end: "+=100%",
-          onToggle: (self) => {
-            if (self.isActive) {
-              gsap.to(".gallery", { backgroundColor: bgColor });
-            } else if (
-              (i === 0 && self.direction < 0) ||
-              (i === details.length - 1 && self.direction > 0)
-            ) {
-              gsap.to(".gallery", { backgroundColor: "#ff3b5f" });
-            }
-          },
-        });
-      });
-
-      // console.log();
+      gsap.set(photos, { yPercent: 101 });
 
       ScrollTrigger.create({
         trigger: ".gallery",
@@ -67,8 +35,11 @@ export default function Home() {
 
         let animation = gsap
           .timeline()
-          .to(photos[index], { yPercent: 0 })
-          .to(allPhotos[index], { autoAlpha: 0 });
+          .to(photos[index], {
+            yPercent: 0,
+            duration: 1.5,
+          })
+          .to(allPhotos[index], { duration: 1.5 });
 
         ScrollTrigger.create({
           trigger: headline,
@@ -79,6 +50,33 @@ export default function Home() {
           markers: true,
         });
       });
+
+      details.forEach((section, i) => {
+        let bgColor = colors[i + 1];
+        ScrollTrigger.create({
+          trigger: section,
+          start: "200 bottom",
+          end: "+=100%",
+          markers: {
+            startColor: "white",
+            endColor: "white",
+            fontSize: "18px",
+            fontWeight: "bold",
+            indent: 20,
+          },
+          onToggle: (self) => {
+            if (self.isActive) {
+              gsap.to(".gallery", { backgroundColor: bgColor });
+            } else if (
+              (i === 0 && self.direction < 0) ||
+              (i === details.length - 1 && self.direction > 0)
+            ) {
+              gsap.to(".gallery", { backgroundColor: "#ff9797" });
+            }
+          },
+        });
+      });
+      // console.log(self);
       return () => {
         // optional
         // custom cleanup code here (runs when it STOPS matching)
