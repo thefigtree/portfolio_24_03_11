@@ -31,7 +31,14 @@ export default function Navigation() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  useGSAP(() => {}, { scope: container });
+  useGSAP(
+    () => {
+      gsap.set(".t_menu_link_item_holder", { y: 75 });
+
+      // t1.current = gsap.timeline({paused: true});
+    },
+    { scope: container }
+  );
 
   return (
     <div className="header" ref={container}>
