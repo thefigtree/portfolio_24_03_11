@@ -25,7 +25,7 @@ const links = [
 export default function Navigation() {
   const container = useRef();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const t1 = useRef();
+  const t1 = useRef(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -35,7 +35,11 @@ export default function Navigation() {
     () => {
       gsap.set(".t_menu_link_item_holder", { y: 75 });
 
-      // t1.current = gsap.timeline({paused: true});
+      t1.current = gsap.timeline({ paused: true }).to(".t_menu_overlay", {
+        duration: 1.25,
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        ease: "power4.inOut",
+      });
     },
     { scope: container }
   );
