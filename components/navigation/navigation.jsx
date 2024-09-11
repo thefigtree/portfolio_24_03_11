@@ -4,8 +4,8 @@ import "./navigation.css";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-// import { useGSAP } from "@gsap/react";
-// import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
 
 const links = [
   {
@@ -24,39 +24,14 @@ const links = [
 
 export default function Navigation() {
   const container = useRef();
-  // const sectionRef = useRef(null);
-  // const linkRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // const t1 = useRef();
+  const t1 = useRef();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // useGSAP(
-  //   () => {
-  //     let Elem = sectionRef.current;
-  //     let linkElem = linkRef.current;
-
-  //     gsap.set(linkElem, { y: 75 });
-
-  //     let Animation = gsap
-  //       .timeline({ paused: true })
-  //       .to(Elem, {
-  //         duration: 1.25,
-  //         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%",
-  //         ease: "Power4.easeInOut",
-  //       })
-  //       .to(linkElem, {
-  //         y: 0,
-  //         duration: 1,
-  //         stagger: 0.1,
-  //         ease: "power4.inOut",
-  //         delay: -0.75,
-  //       });
-  //   },
-  //   { scope: container }
-  // );
+  useGSAP(() => {}, { scope: container });
 
   return (
     <div className="header" ref={container}>
