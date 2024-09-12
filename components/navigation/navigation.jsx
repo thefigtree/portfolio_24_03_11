@@ -35,14 +35,31 @@ export default function Navigation() {
     () => {
       gsap.set(".t_menu_link_item_holder", { y: 75 });
 
-      t1.current = gsap.timeline({ paused: true }).to(".t_menu_overlay", {
-        duration: 1.25,
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-        ease: "power4.inOut",
-      });
+      t1.current = gsap
+        .timeline({ paused: true })
+        .to(".t_menu_overlay", {
+          duration: 1.25,
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+          ease: "power4.inOut",
+        })
+        .to(".t_menu_link_item_holder", {
+          y: 0,
+          duration: 1,
+          stagger: 0.1,
+          ease: "power4.inOut",
+          delay: -0.75,
+        });
     },
     { scope: container }
   );
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      t1.current.play();
+    } else {
+      t1.current.reverse();
+    }
+  }, [isMenuOpen]);
 
   return (
     <div className="header" ref={container}>
