@@ -1,5 +1,6 @@
 .header {
   width: 100%;
+  /* min-height: 100vh; */
   padding: 40px 0%;
   display: flex;
   justify-content: space-around;
@@ -8,13 +9,14 @@
   top: 0;
   left: 0;
   z-index: 10;
+  /* background-color: antiquewhite; */
 }
 
 .logo {
   font-size: 24px;
   position: absolute;
   left: 60px;
-  background-color: red;
+  /* background-color: red; */
 }
 
 .menu {

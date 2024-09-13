@@ -1,16 +1,17 @@
 .toggle {
   position: absolute;
   right: 60px;
+  /* max-height: 100vh; */
   /* top: 0; */
   /* left: 0; */
   /* width: 100vw; */
   /* padding: 2em; */
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* align-items: center; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   z-index: 1;
   font-size: 24px;
-  background-color: red;
+  /* background-color: red; */
 }
 
 /* .t_menu_open {
@@ -35,7 +36,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #c5fb45;
+  background-color: #fff;
   z-index: 2;
   display: flex;
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
