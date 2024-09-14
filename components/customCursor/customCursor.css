@@ -1,0 +1,10 @@
+.follow_cursor {
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  border-radius: 100%;
+}
