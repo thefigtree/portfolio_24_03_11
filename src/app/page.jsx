@@ -1,11 +1,11 @@
 import ColorImage from "../../components/colorImage/colorImage";
-import CustomCursor from "../../components/customCursor/customCursor";
+// import CustomCursor from "../../components/customCursor/customCursor";
 import MyStack from "../../components/myStack/myStack";
 
 export default function Home() {
   return (
     <>
-      <CustomCursor></CustomCursor>
+      {/* <CustomCursor></CustomCursor> */}
 
       <ColorImage></ColorImage>
       <MyStack></MyStack>

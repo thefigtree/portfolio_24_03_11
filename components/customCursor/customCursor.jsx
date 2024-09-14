@@ -4,7 +4,9 @@ import { useEffect, useRef } from "react";
 import "./customCursor.css";
 import { gsap } from "gsap";
 
-export default function CustomCursor() {
+export default function CustomCursor({ isHovered }) {
+  const size = isHovered ? 75 : 10;
+
   const circleRef = useRef();
 
   const mouseRef = useRef({
@@ -54,5 +56,14 @@ export default function CustomCursor() {
     return () => window.removeEventListener("mousemove", manageMouseMove);
   }, []);
 
-  return <div className="follow_cursor" ref={circleRef}></div>;
+  return (
+    <div
+      className="follow_cursor"
+      style={{
+        width: size,
+        height: size,
+      }}
+      ref={circleRef}
+    ></div>
+  );
 }
