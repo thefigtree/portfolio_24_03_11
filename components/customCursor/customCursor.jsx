@@ -62,6 +62,8 @@ export default function CustomCursor({ isHovered }) {
       style={{
         width: size,
         height: size,
+        // filter: `blur(${isHovered ? 30 : 0}px)`,
+        transition: `width 0.4s ease-out, height 0.4s ease-out`,
       }}
       ref={circleRef}
     ></div>
