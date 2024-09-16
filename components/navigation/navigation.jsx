@@ -20,7 +20,7 @@ const links = [
 export default function Navigation() {
   return (
     <>
-      <div className="header">
+      <nav className="header">
         <div className="logo">
           <Link href="/">J!N</Link>
         </div>
@@ -36,7 +36,7 @@ export default function Navigation() {
         </ul>
 
         <ToggleMenu></ToggleMenu>
-      </div>
+      </nav>
     </>
   );
 }

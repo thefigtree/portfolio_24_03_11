@@ -114,7 +114,7 @@ export default function ColorImage() {
   });
 
   return (
-    <div className="gallery">
+    <section className="gallery">
       <div className="left">
         <div className="content">
           <div className="section">
@@ -233,6 +233,6 @@ export default function ColorImage() {
       </div>
 
       <CustomCursor isHovered={isHovered}></CustomCursor>
-    </div>
+    </section>
   );
 }
