@@ -1,10 +1,11 @@
 .scroll_section_outer {
-  width: 100%;
+  overflow: hidden;
+}
+
+.scroll_section_inner {
+  width: 400vw;
   height: 100vh;
-  background-color: #fff;
-  position: relative;
-  color: black;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  position: relative;
 }
