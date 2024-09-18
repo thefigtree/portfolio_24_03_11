@@ -78,11 +78,6 @@ export default function ColorImage() {
         });
       });
       // console.log(self);
-      return () => {
-        // optional
-        // custom cleanup code here (runs when it STOPS matching)
-        console.log("mobile");
-      };
     });
 
     mm.add("(max-width: 665px)", () => {
@@ -111,6 +106,12 @@ export default function ColorImage() {
         });
       });
     });
+
+    return () => {
+      // optional
+      // custom cleanup code here (runs when it STOPS matching)
+      console.log("mobile");
+    };
   });
 
   return (
