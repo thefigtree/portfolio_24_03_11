@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useState } from "react";
 import CustomCursor from "../customCursor/customCursor";
+import { contentsApi } from "app/contentsApi";
 
 export default function ColorImage() {
   const [isHovered, setIsHovered] = useState(false);
@@ -118,6 +119,15 @@ export default function ColorImage() {
     <section className="gallery">
       <div className="left">
         <div className="content">
+          {contentsApi.map((con) => (
+            <div className="section" key={con.id}>
+              <h1>{con.title}</h1>
+              <p>{con.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* <div className="content">
           <div className="section">
             <h1>Portfolio 1</h1>
             <p>
@@ -174,7 +184,7 @@ export default function ColorImage() {
               technology industries.
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="right">
