@@ -4,12 +4,12 @@ import "./colorImage.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useState } from "react";
-import CustomCursor from "../customCursor/customCursor";
+// import { useState } from "react";
+// import CustomCursor from "../customCursor/customCursor";
 import { contentsApi } from "app/contentsApi";
 
 export default function ColorImage() {
-  const [isHovered, setIsHovered] = useState(false);
+  // const [isHovered, setIsHovered] = useState(false);
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -229,12 +229,12 @@ export default function ColorImage() {
 
         <div
           className="desktopGallery"
-          onMouseEnter={() => {
-            setIsHovered(true);
-          }}
-          onMouseLeave={() => {
-            setIsHovered(false);
-          }}
+          // onMouseEnter={() => {
+          //   setIsHovered(true);
+          // }}
+          // onMouseLeave={() => {
+          //   setIsHovered(false);
+          // }}
         >
           <div className="desktopColor">1</div>
           <div className="desktopColor">2</div>
@@ -243,7 +243,7 @@ export default function ColorImage() {
         </div>
       </div>
 
-      <CustomCursor isHovered={isHovered}></CustomCursor>
+      {/* <CustomCursor isHovered={isHovered}></CustomCursor> */}
     </section>
   );
 }
