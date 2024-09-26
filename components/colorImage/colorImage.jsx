@@ -18,7 +18,8 @@ export default function ColorImage() {
 
     let mm = gsap.matchMedia();
 
-    mm.add("(min-width: 666px)", () => {
+    mm.add("(min-width: 769px)", () => {
+      console.log("Web");
       const details = gsap.utils.toArray(".section:not(:first-child)");
       const photos = gsap.utils.toArray(".desktopColor:not(:first-child)");
       const allPhotos = gsap.utils.toArray(".desktopColor");
@@ -78,22 +79,27 @@ export default function ColorImage() {
           },
         });
       });
+
+      // return () => {
+      //   // optional
+      //   // custom cleanup code here (runs when it STOPS matching)
+      //   console.log("mobile");
+      // };
       // console.log(self);
     });
 
-    mm.add("(max-width: 665px)", () => {
+    mm.add("(max-width: 768px)", () => {
+      console.log("Mobile");
       // Mobile animations
       const details = gsap.utils.toArray(
         ".desktopContentSection:not(:first-child)"
       );
-
       details.forEach((section, i) => {
         let bgColor = colors[i + 1];
         ScrollTrigger.create({
           trigger: section,
           start: "200 bottom",
           end: "+=100%",
-
           onToggle: (self) => {
             if (self.isActive) {
               gsap.to(".gallery", { backgroundColor: bgColor });
@@ -107,12 +113,6 @@ export default function ColorImage() {
         });
       });
     });
-
-    return () => {
-      // optional
-      // custom cleanup code here (runs when it STOPS matching)
-      console.log("mobile");
-    };
   });
 
   return (

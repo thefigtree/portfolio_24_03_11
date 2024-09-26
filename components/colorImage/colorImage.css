@@ -104,7 +104,7 @@
   background-color: dodgerblue;
 }
 
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 768px) {
   .left {
     display: none;
   }
